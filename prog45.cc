@@ -11,24 +11,22 @@ using std::string;
 
 int main() 
 {
-	// pointers and arrays
-	// pointers and arrays are closely intertwined. actually, the compiler
-	// converts an array to a pointer.
+	// pointers are iterators
 	
-	string nums[] = {"one", "two", "three"};
-	string *p = &nums[0];
-	string *p2 = nums; // is equal to *p2 = &nums[0]
+	int arr[] = {0,1,2,3,4,5,6,7,8,9};
+	int *p = arr; // points to the first element of arr
 	
-	// the compilers substitutes a pointer to the first element of
-	// an object of type array
-	
-	// implications
-	int ia[] = {0,1,2,3,4};
-	auto ia2(ia); // ia2 is a pointer
-	*ia2 = 42; // if we used ia instead of *ia, error assignment
-	for (auto i : ia)
+	cout << "array arr has elements: " << endl; 
+	for (auto i : arr)
 		cout << i << " ";
-	cout << endl; // ia is now {42, 1, 2, 3, 4}
+	cout << endl;
+	
+	cout << "*p points to first element, calling *p: " << endl; 
+	cout << *p << endl;
+	
+	cout << "by incrementing; ++p, calling *p: " << endl; 
+	++p; // points to second element
+	cout << *p << endl;
 	
 	return 0;
 }
