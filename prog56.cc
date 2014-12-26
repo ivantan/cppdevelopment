@@ -13,16 +13,23 @@ using std::end;
 
 int main() 
 {
-	// logical NOT op
-	// NOT (!) returns the inverse of thr truth value of its
-	// operand.
+	// the left hand operand of an assignment operator must be
+	// a modifiable lvalue
 	
-	// relational ops, if chained, can be surprising
-	int i = 5, j = 6, k = 2;
-	if (i < j < k)
-		cout << "5 < 6 < 2 returns true!" << endl;
-	// remember the relational ops return bool
-	// so 5 < 6 (left assoc) evals to 1, and 1 < 2 returns true.
+	int i = 0, j = 0, k = 0; // init not assign
+	const int ci = i; // init not assign
+	
+	// literals are rvalues; 1024 = k gives error
+	// arith exp are rvalue; i + j = k gives err
+	
+	// assignment is right assoc
+	int ival, jval;
+	ival = jval = 0;
+	
+	// compound assignment operators
+	// += -= *= /= %=
+	// more complex ones
+	// <<= >>= &= ^= |=
 	
 	return 0;
 }
