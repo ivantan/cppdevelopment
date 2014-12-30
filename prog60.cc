@@ -13,15 +13,21 @@ using std::end;
 
 int main()
 {
-	// dot (.) and arrow (->) op provide for member access
-	// ptr->mem is equal to (*ptr).mem
-	
-	string s1 = "a string", *p = &s1;
-	auto n = s1.size(), n2 = (*p).size(), n3 = p->size();
-	cout << n << " " << n2 << " " << n3 << endl; 
-	
-	// consider without parenthesis for (*p).size()
-	// the eval would be to find size for a ptr then deref, not possible
+	// conditional (?) lets us embed simple if-else logic inside an expr
+	// uses the form:
+	// cond ? expr1 : expr2;
+	// e.g.
+	int grade = 70;
+	string finalgrade = (grade < 60) ? "fail" : "pass";
+
+	// can also nest conditionals. for readability, try not to nest more than two.
+	grade = 95;
+	finalgrade = (grade > 90) ? "high pass"
+							  : (grade < 60) ? "pass" : "pass";
+	cout << finalgrade << endl;
+	// using conditional in output expr
+	grade = 40;
+	cout << ((grade < 60) ? "fail" : "pass") << endl;
 	
 	return 0;
 }
