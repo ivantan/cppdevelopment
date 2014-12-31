@@ -20,7 +20,13 @@ int main()
 	
 	Sales_data data, *p;
 	sizeof(Sales_data);
-	sizeof p;
+	sizeof p; // ret the size needed to hold a pointer
+	sizeof *p; // ret ret the size of an obj of the type to which ptr
+	// points to.
+	
+	// sizeof array does not convert the array to a pointer, but rather
+	// the size of the entire array, equivalent to taking sizeof the
+	// element type times the number of elements in the array
 
 	return 0;
 }
