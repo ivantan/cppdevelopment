@@ -20,5 +20,22 @@ int main()
 	// "do while"
 	// exec the body then tests for its cond
 	
+	// while loop; repeatedly exec a target statem as 
+	// long as a cond is true. syntactic form is
+	// while (cond)
+	// 		statement
+	
+	vector<int> v;
+	int i;
+	
+	while (cin >> i)
+		v.push_back(i);
+	
+	auto beg = v.begin();
+	while (beg != v.end() && *beg >= 0)
+		++beg;
+	if (beg == v.end())
+		;// ...
+	
 	return 0;
 }
