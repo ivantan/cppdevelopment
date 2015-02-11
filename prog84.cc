@@ -13,17 +13,23 @@ using std::begin;
 using std::end;
 
 
-void reset(int *ip)
+void reset(int &ip)
 {
-	*ip = 0;
 	ip = 0;
-	cout << "local copy of pointer after reset is at " << ip << endl;
 }
 
 int main()
 {
-	// pointer parameters also exhibit the same behavior
-	// the ptr itself does NOT change
+	// passing arguments by reference
+	int n=0, i=42;
+	int &r=n; // r is bound to n (or r is another name for n)
+	r=42; // n is now 42
+	r=i; // n now has the same value as i
+	i=r; // i has the same value as n
+
+	int j=42;
+	reset(j);
+	cout << "j = " << j << endl; // should print j = 0
 
 	return 0;
 }
