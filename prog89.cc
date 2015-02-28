@@ -38,6 +38,11 @@ void swap(int &v1, int &v2)
 	// no explicit return necessary
 }
 
+// for type2: the ret statement provides the function's result. here,
+// every function must return a value. also the value must have the same
+// type as the function type, or a type that can be implicitly converted
+// to that type.
+
 int main()
 {
 
