@@ -17,4 +17,6 @@ int main()
 		// print the results
 		cout << w.first << " occurs " << w.second
 			 << ((w.second > 1) ? " times" : " time") << endl;
+	
+	return 0;
 }
