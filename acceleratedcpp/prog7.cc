@@ -1,5 +1,3 @@
-Finally we can write our complete program:
-
 #include <algorithm>
 #include <iomanip>
 #include <ios>
