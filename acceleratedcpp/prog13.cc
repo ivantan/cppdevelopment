@@ -1,10 +1,8 @@
-#include <string>
-#include <vector>
-#include <iostream>
+// function for checking palindrome
 
-
-vector<string> split(const string& str)
+bool is_palindrome(const string& s)
 {
-	vector<string> ret;
-	return ret;
+    return equal(s.begin(), s.end(), s.rbegin());
 }
+
+// rbegin() returns an iterator but starts at the last element and moves to the first
