@@ -4,9 +4,11 @@
 #include <cctype>
 #include <algorithm>
 #include <numeric>
+#include <stdexcept>
 
 #include "Student_info.h"
 #include "grade.h"
+#include "median.h"
 
 using std::cout;
 using std::cin;
@@ -15,37 +17,18 @@ using std::find_if;
 using std::getline;
 using std::string;
 using std::vector;
+using std::domain_error;
+using std::ostream; 
+using std::accumulate;           
+using std::back_inserter;
+using std::remove_copy;               
+using std::transform;
 
 bool did_all_hw(const Student_info& s)
 {
 return ((find(s.homework.begin(), s.homework.end(), 0))
      ==  s.homework.end());
 }
-
-vector<Student_info> did, didnt;
-Student_info student;
-
-// read all the records, separating them based on whether all homework was done 
-while (read(cin, student)) {
-    if (did_all_hw(student))
-        did.push_back(student);
-    else
-        didnt.push_back(student);
-}
-
-// check that both groups contain data 
-if (did.empty()) {
-    cout << "No student did all the homework!" << endl;
-    return 1;
-}
-if (didnt.empty()) {
-    cout << "Every student did all the homework!" << endl;
-    return 1;
-}
-
-// here .empty is used, instead of checking whether the size is 0,
-// for some containers it is more efficient to know whether there
-// are elements in the container than to find the size.
 
 double grade_aux(const Student_info& s)
 {
@@ -117,6 +100,15 @@ double optimistic_median(const Student_info& s)
         return grade(s.midterm, s.final, 0);
     else
         return grade(s.midterm, s.final, median(nonzero));
+}
+
+double optimistic_median_analysis(const vector<Student_info>& students)
+{
+        vector<double> grades;
+
+        transform(students.begin(), students.end(),
+                  back_inserter(grades), optimistic_median);
+        return median(grades);
 }
 
 int main()
