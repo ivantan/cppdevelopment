@@ -19,3 +19,5 @@ doing 'g++ -c filename' for each file, that is, 'g++ -c prog.cc; g++ -c func1.cc
 in this example all 3 files are compiled in one line, you can compile each file separate as and when
 there are changes in a particular file, hence the separate compilatoion. finally, which each resulting
 filename.o, do 'g++ func1.o func2.o prog.o -o prog', and run the program prog with './prog'
+
+for more details to running c++ files using terminal, see "http://www.haverford.edu/cmsc/course-pages/usingMake.html".
