@@ -31,7 +31,14 @@ vector<string> vcat(const vector<string>& top,
     // copy the top picture
     vector<string> ret = top;
 
-    // copy entire bottom picture
+    /*
+    // copy entire bottom picture (version 1)
+    for (vector<string>::const_iterator it = bottom.begin();
+         it != bottom.end(); ++it)
+        ret.push_back(*it);
+    */
+
+    // copy entire bottom picture (version 2)
     ret.insert(ret.end(), bottom.begin(), bottom.end());
 
     return ret;
