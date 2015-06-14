@@ -43,7 +43,7 @@ istream& read_hw(istream& in, vector<double>& hw)
 
 istream& Student_info::read(istream& in)
 {
-    in >> name >> midterm >> final;
+    in >> n >> midterm >> final;
     read_hw(in, homework);
     return in;
 }

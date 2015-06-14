@@ -8,7 +8,7 @@ class Student_info {
 public:
 	//INTERFACE 
 	// constructors
-    Student_info()                 // construct an empty Student_info object
+    Student_info();                 // construct an empty Student_info object
     Student_info(std::istream&);   // construct one by reading a stream 
     // accessor function
 	std::string name() const { return n; } 
