@@ -11,7 +11,6 @@ int main(int argc, char** argv)
         for (i = 1; i < argc-1; ++i)         // write all but the last entry and a space
             cout << argv[i] << " ";          // argv[i] is a char*
         cout << argv[i] << endl;             // write the last entry but not a space
-       	cout << i << endl;
     }
     return 0;
 }
