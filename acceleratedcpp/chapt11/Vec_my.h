@@ -10,7 +10,12 @@ public:
 	
 	Vec() { create(); }
 	explicit Vec(size_type n, const T& val = T()) { create(n, val); }
-	// remaining interface
+
+    // new operations: size and index
+    size_type size() const { return limit - data; }
+
+    T& operator[](size_type i) { return data[i]; }
+    const T& operator[](size_type i) const { return data[i]; }
 private:
   iterator data;        // first element in the Vec
   iterator limit;       // one past the last element in the Vec
