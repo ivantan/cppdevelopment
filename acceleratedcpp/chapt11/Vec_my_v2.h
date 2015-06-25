@@ -34,3 +34,18 @@ private:
   iterator data;        // first element in the Vec
   iterator limit;       // one past the last element in the Vec
 };
+
+template <class T>
+Vec<T>& Vec<T>::operator=(const Vec& rhs)
+{
+    // check for self-assignment
+    if (&rhs != this) {
+
+        // free the array in the left-hand side
+        uncreate();
+
+        // copy elements from the right-hand to the left-hand side
+        create(rhs.begin(), rhs.end());
+    }
+    return *this;
+}
