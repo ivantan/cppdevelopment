@@ -1,28 +1,35 @@
-// implementing the Vec class
+// extending from Vec_my.h
+// now with Copy control
 
 template <class T> class Vec {
 public:
-	// TODO utility function to use deal with private elements
+	// type definitions
 	typedef T* iterator;
 	typedef const T* const_iterator;
 	typedef size_t size_type;
 	typedef T value_type;
 	
+	// constructions
 	Vec() { create(); }
 	explicit Vec(size_type n, const T& val = T()) { create(n, val); }
+	
+	Vec(const Vec& v) { create(v.begin(), v.end()); } // copy constructor
+	Vec& operator=(const Vec&); // assignment operator
+	~Vec() { uncreate(); } // destructor
 
-  // new operations: size and index
+  // size and index
   size_type size() const { return limit - data; }
 
   T& operator[](size_type i) { return data[i]; }
   const T& operator[](size_type i) const { return data[i]; }
 	
-  // new functions to return iterators
-  iterator begin() { return data; }                 // added
-  const_iterator begin() const { return data; }     // added
+  // return iterators
+  iterator begin() { return data; }                 
+  const_iterator begin() const { return data; }     
 
-  iterator end() { return limit; }                  // added
-  const_iterator end() const { return limit; }      // added
+  iterator end() { return limit; }                  
+  const_iterator end() const { return limit; }      
+	
 private:
   iterator data;        // first element in the Vec
   iterator limit;       // one past the last element in the Vec
